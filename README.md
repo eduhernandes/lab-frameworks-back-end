@@ -19,7 +19,7 @@ Repositório de apoio para a aula prática de **introdução ao Flask**, da disc
 
 1. Clone este repositório (ou baixe o ZIP):
    ```bash
-   git clone https://github.com/eduhernandes/lab-frameworks-back-end.git
+   git clone https://github.com/SEU-USUARIO/lab-frameworks-back-end.git
    cd lab-frameworks-back-end
    ```
 
@@ -76,14 +76,21 @@ lab-frameworks-back-end/
 
 ## Como entregar o desafio
 
-Depois de resolver o desafio em `desafio/todo_app_esqueleto.py`, gere o arquivo de dependências atualizado e faça commit:
+A entrega é feita pelo **Teams**, na aba **Atribuições**, e não pelo GitHub.
 
-```bash
-pip freeze > requirements.txt
-git add .
-git commit -m "Desafio TodoList resolvido"
-git push
-```
+1. Depois de resolver o desafio em `desafio/todo_app_esqueleto.py`, atualize o arquivo de dependências:
+   ```bash
+   pip freeze > requirements.txt
+   ```
+
+2. Compacte a pasta do seu projeto em um único `.zip`. **Não inclua a pasta `venv/`** no arquivo.
+
+3. Nomeie o arquivo obrigatoriamente como:
+   ```
+   nome_sobrenome_desafio3.zip
+   ```
+
+4. Envie o `.zip` na atividade correspondente no Teams, dentro do prazo definido em aula.
 
 ## Próximo encontro
 
