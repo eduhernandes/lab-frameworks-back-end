@@ -1,21 +1,22 @@
-# Lab Frameworks Back-End — Encontro 3
+# Lab Frameworks Back-End
 
-Repositório de apoio para a aula prática de **introdução ao Flask**, da disciplina Back-End Frameworks (4º Período).
+Repositório de apoio para as aulas práticas da disciplina **Back-End Frameworks**
+(4º Período). Cada laboratório evolui a mesma API de tarefas, construída em Flask.
 
-## Objetivos da aula
-
-- Configurar o ambiente Python com `venv` e instalar o Flask.
-- Criar sua primeira aplicação web (Hello World).
-- Praticar roteamento básico (rotas fixas e dinâmicas).
-- Retornar dados em JSON, simulando o início de uma API REST.
+| Pasta | Conteúdo |
+|---|---|
+| [`lab1/`](./lab1) | Introdução ao Flask — venv, rotas, JSON, primeira API |
+| [`lab2/`](./lab2) | Protocolo HTTP a fundo — verbos, headers, body, status codes |
 
 ## Pré-requisitos
 
 - Python 3.10+ instalado (`python --version` ou `python3 --version` no terminal).
 - Um editor de código (recomendado: VS Code).
-- Navegador ou Postman/Insomnia para testar as rotas.
+- Navegador ou Postman/Insomnia/curl para testar as rotas.
 
 ## Passo a passo — configurando o ambiente
+
+Esse setup é feito **uma única vez** e vale para todos os laboratórios do repositório.
 
 1. Clone este repositório (ou baixe o ZIP):
    ```bash
@@ -42,56 +43,45 @@ Repositório de apoio para a aula prática de **introdução ao Flask**, da disc
    pip install -r requirements.txt
    ```
 
-4. Rode a aplicação exemplo:
+4. Confirme que está tudo certo rodando o exemplo do Lab 1:
    ```bash
-   python app.py
+   python lab1/app.py
    ```
-
-5. Acesse no navegador: http://127.0.0.1:5000/
+   Acesse http://127.0.0.1:5000/ — se aparecer uma mensagem de boas-vindas, o ambiente está pronto.
 
 ## Estrutura do repositório
 
 ```
 lab-frameworks-back-end/
-├── app.py                          # Hello World (Bloco 1)
+├── README.md                       # este arquivo — índice geral
+├── SETUP.md                        # troubleshooting de erros comuns (venv, porta, curl, etc)
 ├── requirements.txt
-├── SETUP.md                        # Troubleshooting de erros comuns
-├── exemplos/
-│   ├── rotas_dinamicas.py          # Bloco 2 - rota /saudacao/<nome> e /api/status
-│   └── produtos.py                 # Bloco 2 - lista em memória + rotas GET
-├── desafio/
-│   ├── enunciado.md                # Bloco 3 - enunciado do desafio TodoList
-│   └── todo_app_esqueleto.py       # Bloco 3 - ponto de partida para o desafio
-└── README.md
+├── lab1/                           # Laboratório 1 — Introdução ao Flask
+│   ├── README.md
+│   ├── app.py
+│   ├── exemplos/
+│   └── desafio/
+├── lab2/                           # Laboratório 2 — Protocolo HTTP a fundo
+│   ├── README.md
+│   ├── exemplos/
+│   └── desafio/
+└── correcao/                       # Scripts de correção em lote (uso do professor)
+    ├── smoke_test_lab1.py
+    └── smoke_test_lab2.py
 ```
 
-> **Deu erro?** Antes de chamar o professor, dá uma olhada no [`SETUP.md`](./SETUP.md) — ele cobre os problemas mais comuns (venv não ativa, porta ocupada, Flask não encontrado, etc).
+Cada pasta `labN/` tem seu próprio `README.md` com objetivos, ordem de estudo e
+instruções de entrega específicas daquele laboratório.
 
-## Ordem sugerida de estudo (acompanha a aula)
+## Deu erro?
 
-1. `app.py` — primeiro contato com o Flask.
-2. `exemplos/rotas_dinamicas.py` — rotas com parâmetros e retorno em JSON.
-3. `exemplos/produtos.py` — simulação de um "banco de dados" em memória.
-4. `desafio/enunciado.md` + `desafio/todo_app_esqueleto.py` — desafio prático da aula.
+Antes de chamar o professor, dá uma olhada no [`SETUP.md`](./SETUP.md) — ele
+cobre os problemas mais comuns (venv não ativa, porta ocupada, Flask não
+encontrado, erro 415 no curl, etc).
 
-## Como entregar o desafio
+## Como entregar os desafios
 
-A entrega é feita pelo **Teams**, na aba **Atribuições**, e não pelo GitHub.
-
-1. Depois de resolver o desafio em `desafio/todo_app_esqueleto.py`, atualize o arquivo de dependências:
-   ```bash
-   pip freeze > requirements.txt
-   ```
-
-2. Compacte a pasta do seu projeto em um único `.zip`. **Não inclua a pasta `venv/`** no arquivo.
-
-3. Nomeie o arquivo obrigatoriamente como:
-   ```
-   nome_sobrenome_desafio3.zip
-   ```
-
-4. Envie o `.zip` na atividade correspondente no Teams, dentro do prazo definido em aula.
-
-## Próximo encontro
-
-Protocolo HTTP a fundo (verbos GET, POST, PUT, DELETE, headers, status codes) e como o Flask lida com `request.json` e formulários.
+Todos os laboratórios seguem o mesmo fluxo: `.zip` do projeto enviado pela aba
+**Atribuições** do Teams, nomeado como `nome_sobrenome_labN.zip` (ex:
+`joao_silva_lab1.zip`). Detalhes específicos de cada desafio estão no
+`README.md` e no `desafio/enunciado.md` de cada pasta `labN/`.

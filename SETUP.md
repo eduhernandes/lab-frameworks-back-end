@@ -138,6 +138,48 @@ Este guia cobre os erros mais comuns que costumam travar quem está configurando
 
 ---
 
+## 11. `curl: command not found` (Windows)
+
+**Causa:** Versões antigas do Windows não têm `curl` no PowerShell/cmd por padrão (Windows 10 1803+ já vem com ele).
+
+**Solução:**
+- Confirme a versão: `curl --version`. Se não existir, use o **Git Bash** (instalado junto com o Git) — ele sempre tem `curl`.
+- Alternativa: usar Postman ou Insomnia com interface gráfica em vez do terminal.
+
+---
+
+## 12. Erro 415 "Unsupported Media Type" ao enviar POST/PUT
+
+**Causa:** Esqueceu de enviar o header `Content-Type: application/json`, ou o Flask não reconheceu o corpo como JSON.
+
+**Solução:**
+- Confirme que o comando `curl` inclui `-H "Content-Type: application/json"`.
+- No Postman/Insomnia, confira a aba **Headers** ou selecione o tipo de corpo como **JSON** na aba **Body**.
+
+---
+
+## 13. Erro 400 "Bad Request" ou corpo chega como `None` no `request.get_json()`
+
+**Causa:** O JSON enviado está mal formatado (aspas simples em vez de duplas, vírgula sobrando, chaves não fechadas).
+
+**Solução:**
+- JSON exige aspas duplas: `{"titulo": "Estudar"}`, nunca `{'titulo': 'Estudar'}`.
+- No terminal (Windows/PowerShell), aspas simples ao redor do JSON podem causar problemas de escape — prefira Git Bash ou copie o comando exatamente como está no enunciado.
+- Valide o JSON em um validador online se não tiver certeza da formatação.
+
+---
+
+## 14. `curl` não mostra nada, ou trava sem resposta
+
+**Causa:** O servidor Flask não está rodando, ou está rodando em outra porta.
+
+**Solução:**
+- Confirme que o `python app.py` (ou o arquivo do exemplo/desafio) está rodando em outro terminal.
+- Adicione `-i` ao comando `curl` para ver os headers de resposta e confirmar se a requisição chegou.
+- Se estiver usando outra porta (ex: 5001), ajuste a URL no comando `curl` de acordo.
+
+---
+
 ## Checklist rápido antes de pedir ajuda ao professor
 
 - [ ] O venv está ativado (aparece `(venv)` no terminal)?
