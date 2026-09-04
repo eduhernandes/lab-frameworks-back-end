@@ -180,6 +180,56 @@ Este guia cobre os erros mais comuns que costumam travar quem está configurando
 
 ---
 
+## 15. Ambiente sem venv (alternativa para laboratório com restrições)
+
+Em alguns computadores do laboratório, políticas de segurança podem impedir a criação ou a ativação do ambiente virtual (`venv`). Nessa situação, é possível acompanhar a aula instalando o Flask diretamente no Python do computador.
+
+**Importante:** o funcionamento do Flask não muda; o que muda é que as dependências ficam instaladas globalmente, em vez de isoladas no projeto.
+
+**Solução:**
+
+1. Instale o Flask diretamente:
+   ```bash
+   pip install flask
+   ```
+   No Windows, se necessário, use:
+   ```bash
+   py -m pip install flask
+   ```
+
+2. Confirme a instalação:
+   ```bash
+   pip show flask
+   ```
+   ou, no Windows:
+   ```bash
+   py -m pip show flask
+   ```
+
+3. Execute o exemplo normalmente, por exemplo:
+   ```bash
+   python app.py
+   ```
+   No Windows, se necessário:
+   ```bash
+   py app.py
+   ```
+
+**Sobre o `requirements.txt`:**
+
+- Não use `pip freeze > requirements.txt` nesse caso, pois ele pode registrar vários pacotes instalados globalmente no computador, além do Flask.
+- Para este laboratório, mantenha o arquivo simples, contendo apenas o Flask (por exemplo, `flask`).
+- Se for necessário registrar uma versão específica, consulte `pip show flask` e coloque manualmente a versão no arquivo, por exemplo: `Flask==X.Y.Z`.
+
+**Quando usar esta alternativa:**
+
+- Se a política do PowerShell impedir a ativação do `venv`;
+- Se você não tiver permissão para alterar as configurações do computador;
+- Se o laboratório utilizar computadores com restrições administrativas.
+
+**Se o venv estiver disponível, ele continua sendo a opção recomendada**, pois mantém as dependências do projeto isoladas. A alternativa sem venv existe para que as restrições do ambiente não impeçam a realização da aula.
+
+
 ## Checklist rápido antes de pedir ajuda ao professor
 
 - [ ] O venv está ativado (aparece `(venv)` no terminal)?
